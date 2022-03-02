@@ -1,0 +1,27 @@
+Json (Java Script Object Notaion)
+
+JSON (데이터 포맷)
+
+JSON 형태로 보내기
+
+html ↔ Java ↔ DB
+       Node.js
+
+1. 명사
+2. 복합명사일 때 (카멜 표기법)
+ex) int , user, Information
+
+3. 데이터 타입이 boolean형일 때
+   변수 이름 앞에 is + (명사)
+ex) isLogin (로그인 여부) true, false
+    isMeal (식사 여부) 
+
+
+리눅스 명령어 (운영체제 : 윈도우, 맥OS, 리눅스)
+(개발자가 알아야 하는 필수 명령어)
+
+ls : 현재 경로 파일 및 폴더 확인 
+cd : 폴더 접속
+pwd : 현재 경로 확인
+clear : 명령어 내용 삭제
+
