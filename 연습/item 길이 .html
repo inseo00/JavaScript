@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .row {
+            display: flex;
+            width: 1200px;
+            height: 400px;
+            margin: 50px auto;
+        }
+        .item {
+            flex-basis: 20%;
+            background-color: darkcyan;
+            border: 1px solid white;
+        }
+        button {
+            font-size: 20px;
+            padding: 3%;
+        }
+    </style>
+</head>
+<body>
+    <!-- item을 append를 이용해 추가 하기 -->
+    <div class="container">
+        <button onclick="createItem()">append</button>
+        <button id="children">children</button>
+        <div class="row">
+            <div class="item" onclick="clickItem(this)">한가람 식당</div>
+        </div>
+
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"></script>
+      <script>
+        // 객체지향 프로그래밍 : this = 본인 / super = 부모
+        // 객체지향 프로그래밍 자바 파이썬 js node 리액트 C++ C# ....
+        // 절차지향 프로그래밍 : C 코볼 ....
+          function clickItem(value) {
+            console.log(value);
+          }
+          // on : 이벤트를 받을 준비 (바인딩)
+          // 이름이 없는 함수 : 익명함수
+          // javaScript 특징 : 매개변수로 함수가 가능
+          // javaScript 특징 : return에 함수 구현 가능(return 타입이 없어서) (클로저)
+          // on -> click -> fuction 순서로 실행 됨
+          // jQuery children
+          // children : 자식 정보 호출
+          $("#children").on('click',function(){
+            // 내가 클릭하면 하고싶은 행위넣기
+            // console.log('hello world');
+            // row자식의 길이
+            var len = $(".row").children().length;
+            // $(".row").children() : 부모인 row가 자식에 대한 정보 호출
+            console.log($(".row").children());
+            // 0번째 자식 태그의 innerText를 가져오겠다
+            console.log($(".row").children()[0].innerText);
+        });
+        function createItem() {
+            // 버튼 한 번 클릭하면 아이템 5개 만들어지게
+            // for (var i=0; i<6; i++){
+            //           $('.row').append('<div class="item"></div>');
+            //       }
+            // row의 길이
+            var len = $(".row").children().length;
+            // item 길이가 6이상일 때 append 그만
+            if (len<6){
+                for (var i=0; i<6; i++){
+                      $('.row').append('<div class="item"></div>');
+                  }
+            }else {
+                alert('item길이가 6을 넘었습니다')
+            }
+          }
+      </script>
+</body>
+</html>
