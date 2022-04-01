@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="my-github">
+        <h3 class="name"></h3>
+        <p class="followers"></p>
+        <p class="following"></p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>visibility</th>
+                <th>created_at</th>
+            </tr>
+        </thead>
+        <tbody id="list">
+       <tr>
+        <td>275516967</td>
+        <td>33-js-concepts</td>
+        <td>public</td>
+        
+        </tr>
+        </tbody>
+    </table>
+</body>
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"
+></script>
+<script>
+    // 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
+    //전송! (동기 전송, 비동기 전송)\
+    //ajax default value : 비동기 전송
+    $.ajax({
+    url:'https://api.github.com/users/inseo00',
+    type : 'GET', // 데이터 조회(select)
+    dataType : 'json', //API 서버에서 오는 데이터타입 정의,
+    headers:{Authorization:'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'},
+    success : (data) => {
+    console.log('followers =>' + data.followers);
+    console.log('following =>' + data.following)
+    console.log(data);
+    $('.followers').append(data.followers);
+    $('.following').append(data.following);
+    $('.name').append(data.login);
+
+    },
+    arror : function(request, status,error){
+    //서버 요청에 실패하면!
+        console.log(request);
+        if(request.status == 404) {
+            alert('없는 주소입니다!')
+        }
+    }
+    }); //ajax 선언
+
+    $.ajax({
+        url: 'https://api.github.com/users/inseo00',//목적지 주소
+        type : 'GET',
+        dataType : 'json',
+        headers:{Authorization:'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'}
+    })
+</script>
+</html>

@@ -118,3 +118,57 @@ for(i=0; i<3; i++)
 array = [2,4,5,10]
 
 *each : 반복해서 돌리다
+_______________________________________________________________________________________________________________________
+
+3/25 
+
+1. okky, naver blog
+2. .io, 티스토리
+3. 문서(docs),
+   해외 사이트 
+
+   io : 기술 블로그
+
+_______________________________________________________________________________________________________________________
+
+3/31
+
+*https : html 하이퍼 텍스트 전송
+(Hyper taxt Transfer protocol)
+http 기능(메소드)
+get : 데이터 조회 (select)
+post : 데이터 생성 (Insert)
+delete : 데이터 삭제
+patch : 데이터 일부분 수정 (업데이트)
+
+JQvery : 최종적으로 명령 (없으면 보내기 X)
+
+http : 보안 취약
+
+API : 어플리케이션 인터페이스 주소
+
+URL주소 = API주소 (Application Programming Interface)
+Interface : 상호작용 !
+
+API (json 받을 목적지)
+
+--문법
+
+$.ajax (
+  { //json으로 정의 함
+    url : API 주소 //목적지
+    type : HTTP Method
+    dataType : (json, text) //서버응답 데이터
+    success : function(response){
+    //HTML에서 요청 성공하면 익명함수 파라미터 값을 대입해줄께 !
+    },
+    error : function(request, status, error)
+ }
+)
+
+
+
+HTTP ERROR COED :
+404 : 없는 주소
+500 : 서버 내부결함(에러)
+403 : 권한

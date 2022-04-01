@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="text-wrapper">
+        <input id="참이슬" type="text" value="">
+        <input id="대선" type="text" value="대선">
+        <input id="여수밤바다" type="text" value="">
+        <input id="한라산" type="text" value="한라산">
+        <input id="린" type="text" value="린">
+    </div>
+    <button>클릭</button>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        
+        var result = $('#참이슬').val();
+        console.log(result);
+
+        // 클릭 했을 때 input value 가져오기( 조건:공백제거)
+        //1번째 방법 :  요소(html 태그)에 ID를 지정
+        //단점 : input이 많아지면 코드도 길어짐 
+        //id 접근은 #
+        var name = '참이슬';
+        //제이쿼리에 모든 함수는 return 값이 존재
+        var result = $("#" + name)
+        .val()
+        .trim(); //메소드 체이닝
+        console.log(result);
+
+        //2번째 방법 :  부모와 자식을 이용
+        //text-wrapper 자식정보가 변수에 대입
+        var textwrapperchildren = $(".text-wrapper").children();
+        console.log(textwrapperchildren); //children을 이용해서 자식정보를 상세히 알 수 있음.
+        
+
+        //배열 === 반복문(while, each, for)
+        for(var i=0; i < textwrapperchildren.length; i++){ //value를 가져옴 how?
+        var id = textwrapperchildren[i].id;
+        var value = $('#' + id)
+        .val()
+        .trim();
+        if(value == ''){
+            console.log('필수 입력란을 작성해주세요');
+            $('#' + id).focus();
+        }
+        }
+
+    </script>
+</body>
+</html>
